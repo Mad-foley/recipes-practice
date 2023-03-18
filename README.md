@@ -1,5 +1,5 @@
 # recipes-practice
-
+Simple MERN project to explore that stack
 
 
 ## Getting started

@@ -1,4 +1,5 @@
-# recipes-practice
-Simple MERN project to explore the stack.
+## recipes-practice
+Simple MERN project tutorial to explore the stack.
 
-Notes takes within the code.
+
+I will be leaving a lot of notes in my code.

@@ -4,12 +4,18 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import * as dotenv from 'dotenv';
 
+// need .js because of our import notation
+import { userRouter } from './routes/users.js';
+
 
 const app = express();
 
 // add middlewares
 app.use(express.json());
 app.use(cors());
+
+// auth route
+app.use("/auth", userRouter);
 
 //allows for env variables
 dotenv.config();

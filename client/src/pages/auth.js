@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from 'axios';
-
+import {useCookies} from 'react-cookie'
+import {useNavigate} from 'react-router-dom'
 
 export const Auth = () => {
     return <div className="auth">
@@ -13,9 +14,25 @@ export const Auth = () => {
 const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    //only need set function
+    const [, setCookies] = useCookies(["access_token"]);
+    const navigate = useNavigate();
 
-    const onSubmit = async () => {
-        
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            // response will recieve everything back including token
+            const response = await axios.post("http://localhost:3001/auth/login", {
+                username,
+                password
+            });
+            setCookies("access_token", response.data.token);
+            window.localStorage.setItem("userID", response.data.userID);
+            navigate("/")
+            console.log(response);
+        } catch(err) {
+            console.error(err)
+        }
     }
     return (
         <Form

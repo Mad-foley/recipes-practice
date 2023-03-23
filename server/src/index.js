@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 
 // need .js because of our import notation
 import { userRouter } from './routes/users.js';
+import { recipesRouter } from './routes/recipes.js';
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors());
 
 // auth route
 app.use("/auth", userRouter);
+app.use("/recipes", recipesRouter);
 
 //allows for env variables
 dotenv.config();

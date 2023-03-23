@@ -15,7 +15,7 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     //only need set function
-    const [, setCookies] = useCookies(["access_token"]);
+    const [_, setCookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
 
     const onSubmit = async (e) => {
